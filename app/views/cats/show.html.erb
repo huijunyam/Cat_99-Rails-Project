@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+    <th>Birth Date</th>
+    <th>Sex</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @cat.name %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.sex %></td>
+    <td><%= @cat.description %></td>
+  </tr>
+</table>
+
+<% @cats.cat_rental_requests.each do |request| %>
+  <% if request.pending? %>
+    <%= button_to "Approve Request", cat_url(request) %>
+    <%= button_to "Deny Request", cat_url(request) %>
+    <% end %>
+<% end %>
+ 
+
+<%= button_to "Delete Cat", cat_url(@cat), method: :delete %>
